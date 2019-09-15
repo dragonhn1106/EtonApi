@@ -1,0 +1,8 @@
+.col-right {
+    width: 80%;
+    height: calc(100vh);
+    float: left;
+    overflow-x: hidden;
+    overflow-y: auto;
+    border: 1px solid #cccccc;
+}
