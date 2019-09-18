@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import "./LeftCol.css";
 import {Link} from "react-router-dom";
-export default class LeftCol extends Component {
+import {connect} from "react-redux";
+class LeftCol extends Component {
     onClickItemMenu = () => {
+        
         var header = document.getElementById("list-menu");
         console.log(header);
         
@@ -17,8 +19,22 @@ export default class LeftCol extends Component {
             });
         };
     }
-   
+    
+    renderListMenu=()=>{
+        var result = null;
+        var ItemsListMenu = this.props.listItemMenu
+        if(ItemsListMenu.length >0){
+            result = ItemsListMenu.map((itemMenu, index)=>{
+                // return(
+
+                // );
+            })
+        }
+        return result;
+    }
     render() {
+        console.log(this.props.listItemMenu);
+        
         return (
             <div className="col-left">
                 <div className="frm_search">
@@ -27,6 +43,9 @@ export default class LeftCol extends Component {
                 <div className="list-menu" id="list-menu">
                     <div className="nav-pills">
                         <ul>
+                            <li className="item-menu active" >
+                                {this.renderListMenu()}                                
+                            </li>
                             <li className="item-menu active" >
                             <Link to="/introduction">
                                 Introduction    
@@ -54,3 +73,10 @@ export default class LeftCol extends Component {
         )
     }
 }
+
+const mapSateToProps = (state)=>{
+    return {
+        listItemMenu: state.itemMenu
+    }
+}
+export default connect(mapSateToProps, null)(LeftCol)

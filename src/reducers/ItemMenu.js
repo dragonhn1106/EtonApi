@@ -1,5 +1,23 @@
 import * as types from './../contants/actionType';
-var initalState = [];
+var initalState = [{
+        menu_cha: 'INTRODUCTION',
+        menu_con: [{
+            name: '',
+            status: ''
+        }]
+
+    },
+    {
+        menu_cha: 'AUTHENTICATION',
+        menu_con: [{
+            name: 'Authorization',
+            status: true
+        }],
+
+
+    }
+
+];
 
 var myReduers = (state = initalState, action) => {
     switch (action.type) {
@@ -7,7 +25,8 @@ var myReduers = (state = initalState, action) => {
 
             return state;
 
-        default: return state;
+        default:
+            return state;
     }
 }
 
