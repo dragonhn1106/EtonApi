@@ -7,9 +7,8 @@ var myReduers = (state = initalState, action) => {
 
             return state;
 
-        default: state;
+        default: return state;
     }
-    return state;
 }
 
 export default myReduers
