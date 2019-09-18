@@ -25,9 +25,28 @@ class LeftCol extends Component {
         var ItemsListMenu = this.props.listItemMenu
         if(ItemsListMenu.length >0){
             result = ItemsListMenu.map((itemMenu, index)=>{
-                // return(
+                if(itemMenu.menu_cha >0){
+                    return( 
+                    <li className="item-menu">
+                        <a href="javscript:void(0)" onClick={this.onClickItemMenu}>{itemMenu.menu_cha}</a>
+                        <ul className="list-menu__menu-cap-2">
+                            <li className="item-tag-post">
+                                <Link to="/authorization">
+                                    <div className="d-flex flex-row justify-content-between">
+                                        <p className="m-0">Authorization</p>
+                                        <p className="m-0 tag-status-post">POST</p>
+                                    </div>
+                                </Link>
+                                
+                            </li>
+                        </ul>
+                    </li>
+                    );
+                }
+                else{
 
-                // );
+                }
+               
             })
         }
         return result;
@@ -43,8 +62,9 @@ class LeftCol extends Component {
                 <div className="list-menu" id="list-menu">
                     <div className="nav-pills">
                         <ul>
-                            <li className="item-menu active" >
-                                {this.renderListMenu()}                                
+                        {this.renderListMenu()} 
+                            {/* <li className="item-menu active" >
+                                                               
                             </li>
                             <li className="item-menu active" >
                             <Link to="/introduction">
@@ -65,9 +85,9 @@ class LeftCol extends Component {
                                         
                                     </li>
                                 </ul>
-                            </li>
+                            </li> */}
                         </ul>
-                </div>
+                    </div>
                 </div>
             </div>
         )
